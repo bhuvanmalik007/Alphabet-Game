@@ -1,0 +1,71 @@
+{
+  "name": "@enginite/electron-starter",
+  "version": "0.1.6",
+  "description": "Electron Starter for Enginite",
+  "bin": {
+    "en-electronator": "./lib/en-electronator.js"
+  },
+  "files": [
+    "lib",
+    "enginite.js"
+  ],
+  "author": "Bhuvan Malik",
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "yarn wrap",
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js",
+    "eject": "node scripts/eject.js",
+    "wrap": "node scripts/wrap.js",
+    "test": "ava",
+    "package": "yarn build && electron-builder build --publish never"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "babel-loader": "^8.0.5",
+    "babel-preset-react-app": "^7.0.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "1.1.3",
+    "cross-spawn": "^5.1.0",
+    "dotenv": "4.0.0",
+    "dotenv-expand": "4.2.0",
+    "electron": "^4.0.1",
+    "electron-builder": "^20.38.4",
+    "electron-debug": "^2.0.0",
+    "electron-devtools-installer": "^2.2.4",
+    "escape-string-regexp": "^1.0.5",
+    "file-loader": "1.1.5",
+    "fs-extra": "3.0.1",
+    "grommet": "^2.7.0",
+    "html-webpack-plugin": "2.29.0",
+    "polished": "^3.3.0",
+    "purescript-psa": "^0.5.1",
+    "purs-loader": "^3.2.0",
+    "react-draggable": "^3.3.0",
+    "react-hot-loader": "^4.3.6",
+    "styled-components": "^4.2.0",
+    "url-loader": "0.6.2",
+    "webpack": "^4.29.5",
+    "webpack-dev-server": "^3.2.0",
+    "webpack-manifest-plugin": "^2.0.4"
+  },
+  "homepage": "https://github.com/rajatsharma/enginite#readme",
+  "peerDependencies": {
+    "electron-builder": "^20.38.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@enginite/standard": "^1.2.6",
+    "@hellpack/eslint-config-hellpack": "^2.2.0",
+    "ava": "^1.2.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "prettier": "^1.17.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

@@ -1,0 +1,120 @@
+#box1 {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.grid-container {
+
+  display:
+  grid;
+
+  grid-template-columns:
+  auto auto
+  auto auto
+  auto auto;
+
+  grid-template-rows:
+  auto;
+
+  padding:
+  10px;
+
+  }
+
+  .grid-item {
+
+  background-color:
+  rgba(255,
+  255, 255,
+  0.8);
+
+  border: 1px
+  solid rgba(0,
+  0, 0,
+  0.8);
+
+  padding:
+  20px;
+
+  font-size:
+  30px;
+
+  text-align:
+  center;
+
+  border-style:
+  dotted;
+
+  align-items:
+  center;
+
+  }
+
+  #container {
+
+  width: 100%;
+
+  height: 400px;
+
+  background-color:
+  #333;
+
+  display:
+  flex;
+
+  /* align-items: center; */
+
+  justify-content:
+  center;
+
+  overflow:
+  hidden;
+
+  border-radius:
+  7px;
+
+  touch-action:
+  none;
+
+  }
+
+  .dragItem {
+
+  width: 100px;
+
+  height: 100px;
+
+  background-color:
+  rgb(245,
+  230, 99);
+
+  border: 10px
+  solid rgba(136,
+  136, 136,
+  .5);
+
+  border-radius:
+  0%;
+
+  touch-action:
+  none;
+
+  user-select:
+  none;
+
+  }
+
+  #item:active {
+
+  background-color:
+  rgba(168,
+  218, 220,
+  1.00);
+
+  }
+
+  #item:hover {
+
+  cursor: pointer;
