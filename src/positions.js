@@ -1,57 +1,6 @@
-const leftPositions = {
-  refreshVal: 0,
-  diagraphs: {
-    heading: 'Diagraphs',
-    color: '#333',
-    elements: [
-      {
-        current: null,
-        text: 'sh',
-      },
-      {
-        current: null,
-        text: 'ch',
-      },
-      {
-        current: null,
-        text: 'th',
-      },
-      {
-        current: null,
-        text: 'wh',
-      },
-      {
-        current: null,
-        text: 'ph',
-      },
-    ],
-  },
-  bossyR: {
-    heading: 'Bossy R',
-    color: '#333',
-    elements: [
-      {
-        current: null,
-        text: 'ar',
-      },
-      {
-        current: null,
-        text: 'or',
-      },
-      {
-        current: null,
-        text: 'er',
-      },
-      {
-        current: null,
-        text: 'ir',
-      },
-      {
-        current: null,
-        text: 'ur',
-      },
-    ],
-  },
-};
-
-export default { leftPositions };
+export const diagraphList = ['sh', 'ch', 'th', 'wh', 'ph'];
+export const bossyRList = ['ar', 'or', 'er', 'ir', 'ur'];
+export const vowelTeamsList1 = ['ai', 'ay', 'ee', 'ea', 'oa'];
+export const vowelTeamsList2 = ['ow', 'igh', 'ie', 'oo'];
+export const diphthongsList = ['oi', 'oy', 'ow', 'ou'];
+export const otherList = ['ing', 'ed'];
