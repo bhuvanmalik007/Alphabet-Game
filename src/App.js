@@ -2,7 +2,8 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
-import { Box, Grommet } from 'grommet';
+import { Box, Button, Icons } from 'grommet';
+import { Refresh } from 'grommet-icons';
 import {
   diagraphList,
   bossyRList,
@@ -53,7 +54,9 @@ const DraggableHOC = ({ ele }) => (
   </Draggable>
 );
 
+// Main component here
 export default () => {
+  // React Hooks
   const [gridState, setGridState] = useState(gridData);
   const [k, setKey] = useState(0);
   useEffect(() => {
@@ -63,6 +66,7 @@ export default () => {
     console.log('useEffect end');
   });
 
+  // Refresh Grids
   const refresh = () => {
     // const newGridState = gridState;
     // newGridState.diagraphs = refreshRow(gridState.diagraphs);
@@ -74,84 +78,126 @@ export default () => {
 
   return (
     <div className="App" key={k}>
-      <table className="grid-container">
-        <tbody>
-          <tr>
-            <td className="grid-item">Diagraphs</td>
-            {gridState.diagraphs.map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            <td className="grid-item">Bossy R</td>
-            {gridState.bossyRs.map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            <td className="grid-item">Vowel Teams</td>
-            {gridState.vowelTeams1.map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            <td className="grid-item">Vowel Teams</td>
-            {gridState.vowelTeams2.map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            <td className="grid-item">Diphthongs</td>
-            {gridState.diphthongs.map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            <td className="grid-item">Other</td>
-            {gridState.others.map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-        </tbody>
-      </table>
+      <Box>
+        <Box
+          direction="row-responsive"
+          justify="center"
+          fill="horizontal"
+          gap="xlarge"
+          basis="auto"
+        >
+          <table className="grid-container">
+            {/* Empty Table */}
+            <tbody>
+              <tr>
+                <td className="grid-item handle">
+                  <div className="dragItem" id="item" />
+                </td>
+                <td className="grid-item handle">
+                  <div className="dragItem" id="item" />
+                </td>
+                <td className="grid-item handle">
+                  <div className="dragItem" id="item" />
+                </td>
+                <td className="grid-item handle">
+                  <div className="dragItem" id="item" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          {/* Refresh */}
+          <Refresh
+            align="right"
+            onClick={() => refresh()}
+            color="plain"
+            size="xlarge"
+          />
+          {/* <Button onClick={() => refresh()} icon={<Icons.Edit />} /> */}
+        </Box>
+        <Box
+          direction="row-responsive"
+          justify="evenly"
+          fill="horizontal"
+          gap="xlarge"
+          basis="auto"
+        >
+          <table className="grid-container">
+            <tbody>
+              <tr>
+                <td className="grid-item">Diagraphs</td>
+                {gridState.diagraphs.map((ele, i) => (
+                  <DraggableHOC className="dragItem_green" key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                <td className="grid-item">Bossy R</td>
+                {gridState.bossyRs.map((ele, i) => (
+                  <DraggableHOC className="dragItem_yellow" key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                <td className="grid-item">Vowel Teams</td>
+                {gridState.vowelTeams1.map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                <td className="grid-item">Vowel Teams</td>
+                {gridState.vowelTeams2.map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                <td className="grid-item">Diphthongs</td>
+                {gridState.diphthongs.map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                <td className="grid-item">Other</td>
+                {gridState.others.map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+            </tbody>
+          </table>
 
-      <table className="grid-container">
-        <tbody>
-          <tr>
-            {gridState.alphabet.slice(0, 5).map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            {gridState.alphabet.slice(5, 10).map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            {gridState.alphabet.slice(10, 15).map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            {gridState.alphabet.slice(15, 20).map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            {gridState.alphabet.slice(20, 25).map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-          <tr>
-            {gridState.alphabet.slice(25, 26).map((ele, i) => (
-              <DraggableHOC key={i} ele={ele} />
-            ))}
-          </tr>
-        </tbody>
-      </table>
-      <button type="button" onClick={() => refresh()}>
-        Reload!
-      </button>
+          <table className="grid-container">
+            <tbody>
+              <tr>
+                {gridState.alphabet.slice(0, 5).map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                {gridState.alphabet.slice(5, 10).map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                {gridState.alphabet.slice(10, 15).map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                {gridState.alphabet.slice(15, 20).map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                {gridState.alphabet.slice(20, 25).map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+              <tr>
+                {gridState.alphabet.slice(25, 26).map((ele, i) => (
+                  <DraggableHOC key={i} ele={ele} />
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </Box>
+      </Box>
     </div>
   );
 };
