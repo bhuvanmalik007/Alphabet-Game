@@ -18,7 +18,7 @@
     "eject": "node scripts/eject.js",
     "wrap": "node scripts/wrap.js",
     "test": "ava",
-    "package": "yarn build && electron-builder build --publish never"
+    "package": "yarn build && electron-builder build --publish never -w"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",

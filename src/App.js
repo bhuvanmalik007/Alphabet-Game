@@ -1,3 +1,4 @@
+/* eslint-disable prefer-spread */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
@@ -38,7 +39,7 @@ const gridData = {
 };
 
 // eslint-disable-next-line react/prop-types
-const DraggableHOC = ({ ele }) => (
+const DraggableHOC = ({ ele, styles }) => (
   <Draggable
     // eslint-disable-next-line react/no-array-index-key
     defaultPosition={{ x: 0, y: 0 }}
@@ -46,8 +47,8 @@ const DraggableHOC = ({ ele }) => (
     position={ele.current}
     scale={1}
   >
-    <td className="grid-item handle">
-      <div className="dragItem" id="item">
+    <td style={styles} className="grid-item">
+      <div className="dragItem handle" id="item">
         {ele.text}
       </div>
     </td>
@@ -86,77 +87,110 @@ export default () => {
           gap="xlarge"
           basis="auto"
         >
+          {/* Empty Table */}
           <table className="grid-container">
-            {/* Empty Table */}
             <tbody>
               <tr>
-                <td className="grid-item handle">
-                  <div className="dragItem" id="item" />
-                </td>
-                <td className="grid-item handle">
-                  <div className="dragItem" id="item" />
-                </td>
-                <td className="grid-item handle">
-                  <div className="dragItem" id="item" />
-                </td>
-                <td className="grid-item handle">
-                  <div className="dragItem" id="item" />
-                </td>
+                {Array.apply(null, Array(6)).map((_, i) => (
+                  <td key={i} height="60" width="60" className="grid-item_grey">
+                    <div className="emptyCell" />
+                  </td>
+                ))}
               </tr>
             </tbody>
           </table>
           {/* Refresh */}
           <Refresh
-            align="right"
+            className="resetBtn"
+            align="end"
             onClick={() => refresh()}
             color="plain"
             size="xlarge"
           />
-          {/* <Button onClick={() => refresh()} icon={<Icons.Edit />} /> */}
         </Box>
         <Box
+          align="end"
+          alignContent="between"
           direction="row-responsive"
           justify="evenly"
           fill="horizontal"
           gap="xlarge"
           basis="auto"
         >
-          <table className="grid-container">
+          <table className="containerr">
             <tbody>
               <tr>
-                <td className="grid-item">Diagraphs</td>
+                <td style={{ color: '#00ff00' }} className="grid-item">
+                  Diagraphs
+                </td>
                 {gridState.diagraphs.map((ele, i) => (
-                  <DraggableHOC className="dragItem_green" key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#00ff00' }}
+                    className="dragItem_green"
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
-                <td className="grid-item">Bossy R</td>
+                <td style={{ color: '#ffd300' }} className="grid-item">
+                  Bossy R
+                </td>
                 {gridState.bossyRs.map((ele, i) => (
-                  <DraggableHOC className="dragItem_yellow" key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#ffd300' }}
+                    className="dragItem_yellow"
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
-                <td className="grid-item">Vowel Teams</td>
+                <td style={{ color: '#ff00ff' }} className="grid-item">
+                  Vowel Teams
+                </td>
                 {gridState.vowelTeams1.map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#ff00ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
-                <td className="grid-item">Vowel Teams</td>
+                <td style={{ color: '#ff00ff' }} className="grid-item">
+                  Vowel Teams
+                </td>
                 {gridState.vowelTeams2.map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#ff00ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
-                <td className="grid-item">Diphthongs</td>
+                <td style={{ color: '#ffa500' }} className="grid-item">
+                  Diphthongs
+                </td>
                 {gridState.diphthongs.map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#ffa500' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
-                <td className="grid-item">Other</td>
+                <td style={{ color: '#b40000' }} className="grid-item">
+                  Other
+                </td>
                 {gridState.others.map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#b40000' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
             </tbody>
@@ -166,32 +200,56 @@ export default () => {
             <tbody>
               <tr>
                 {gridState.alphabet.slice(0, 5).map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#8080ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
                 {gridState.alphabet.slice(5, 10).map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#8080ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
                 {gridState.alphabet.slice(10, 15).map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#8080ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
                 {gridState.alphabet.slice(15, 20).map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#8080ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
                 {gridState.alphabet.slice(20, 25).map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#8080ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
               <tr>
                 {gridState.alphabet.slice(25, 26).map((ele, i) => (
-                  <DraggableHOC key={i} ele={ele} />
+                  <DraggableHOC
+                    styles={{ backgroundColor: '#8080ff' }}
+                    key={i}
+                    ele={ele}
+                  />
                 ))}
               </tr>
             </tbody>
