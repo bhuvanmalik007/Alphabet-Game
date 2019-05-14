@@ -12,6 +12,7 @@ All the React code is in the src folder.
 - Prettier + ESLint + Airbnb Style Guide for code formatting and maintainable code style.
 - React as view library. (Latest version)
 - React Hooks for state management without classes and managing component lifecycle.
+- A single Higher Order Component for all the draggable elements.
 - DOM is generated using pure functions.
 - ECMAScript Modules for separating different concerns of the application.
 - Webpack.
