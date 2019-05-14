@@ -8,6 +8,7 @@ All the React code is in the src folder within which the App.js file returns the
 - The lists are easily extensible.
 
 ### Technologies used and features:
+- Electron
 - yarn for dev dependencies.
 - Prettier + ESLint + Airbnb Style Guide for code formatting and maintainable code style.
 - **React** as view library. (Latest version)
