@@ -2,7 +2,7 @@
 
 This is a fun game for children to drag and drop phonetics and letters and create words out of them.
 
-All the React code is in the src folder Apps.js withing that return the final React component.
+All the React code is in the src folder within which the App.js file returns the final React component.
 
 - All the table rows are auto-generated.
 - The lists are easily extensible.
