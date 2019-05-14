@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import Draggable from 'react-draggable';
-import { Box, Button, Icons } from 'grommet';
+import { Box } from 'grommet';
 import { Refresh } from 'grommet-icons';
 import {
   diagraphList,
@@ -12,14 +12,10 @@ import {
   vowelTeamsList2,
   diphthongsList,
   otherList,
-} from './positions';
-import {
-  refreshRow,
-  refreshAlphabet,
-  stateListGenerator,
-  alphabetListGenerator,
-} from './helpers';
+} from './lists';
+import { stateListGenerator, alphabetListGenerator } from './helpers';
 
+// Generation of all lists
 const diagraphs = stateListGenerator(diagraphList);
 const bossyRs = stateListGenerator(bossyRList);
 const vowelTeams1 = stateListGenerator(vowelTeamsList1);
@@ -28,6 +24,7 @@ const diphthongs = stateListGenerator(diphthongsList);
 const others = stateListGenerator(otherList);
 const alphabet = alphabetListGenerator();
 
+// Final Grid State
 const gridData = {
   diagraphs,
   bossyRs,
@@ -40,40 +37,35 @@ const gridData = {
 
 // eslint-disable-next-line react/prop-types
 const DraggableHOC = ({ ele, styles }) => (
-  <Draggable
-    // eslint-disable-next-line react/no-array-index-key
-    defaultPosition={{ x: 0, y: 0 }}
-    handle=".handle"
-    position={ele.current}
-    scale={1}
-  >
-    <td style={styles} className="grid-item">
-      <div className="dragItem handle" id="item">
+  <td className="grid-item">
+    <Draggable
+      // eslint-disable-next-line react/no-array-index-key
+      defaultPosition={{ x: 0, y: 0 }}
+      handle=".handle"
+      position={ele.current}
+      scale={1}
+    >
+      <div style={styles} className="dragItem handle" id="item">
         {ele.text}
       </div>
-    </td>
-  </Draggable>
+    </Draggable>
+  </td>
 );
 
-// Main component here
+// Main component return here
 export default () => {
   // React Hooks
+  // eslint-disable-next-line no-unused-vars
   const [gridState, setGridState] = useState(gridData);
   const [k, setKey] = useState(0);
   useEffect(() => {
     console.log('useEffect start');
-    console.log(k);
     console.log(gridState);
     console.log('useEffect end');
   });
 
   // Refresh Grids
   const refresh = () => {
-    // const newGridState = gridState;
-    // newGridState.diagraphs = refreshRow(gridState.diagraphs);
-    // newGridState.bossyRs = refreshRow(gridState.bossyRs);
-    // newGridState.alphabet = refreshAlphabet(gridState.alphabet);
-    // setGridState(newGridState);
     setKey(k + 1);
   };
 
@@ -99,7 +91,7 @@ export default () => {
               </tr>
             </tbody>
           </table>
-          {/* Refresh */}
+          {/* Refresh Button */}
           <Refresh
             className="resetBtn"
             align="end"
@@ -110,14 +102,15 @@ export default () => {
         </Box>
         <Box
           align="end"
-          alignContent="between"
+          alignContent="around"
           direction="row-responsive"
-          justify="evenly"
+          justify="center"
           fill="horizontal"
           gap="xlarge"
           basis="auto"
         >
-          <table className="containerr">
+          {/* Left Table Generator */}
+          <table className="container">
             <tbody>
               <tr>
                 <td style={{ color: '#00ff00' }} className="grid-item">
@@ -126,7 +119,6 @@ export default () => {
                 {gridState.diagraphs.map((ele, i) => (
                   <DraggableHOC
                     styles={{ backgroundColor: '#00ff00' }}
-                    className="dragItem_green"
                     key={i}
                     ele={ele}
                   />
@@ -138,8 +130,7 @@ export default () => {
                 </td>
                 {gridState.bossyRs.map((ele, i) => (
                   <DraggableHOC
-                    styles={{ backgroundColor: '#ffd300' }}
-                    className="dragItem_yellow"
+                    styles={{ backgroundColor: '#ffff00' }}
                     key={i}
                     ele={ele}
                   />
@@ -175,19 +166,19 @@ export default () => {
                 </td>
                 {gridState.diphthongs.map((ele, i) => (
                   <DraggableHOC
-                    styles={{ backgroundColor: '#ffa500' }}
+                    styles={{ backgroundColor: '#ff8000' }}
                     key={i}
                     ele={ele}
                   />
                 ))}
               </tr>
               <tr>
-                <td style={{ color: '#b40000' }} className="grid-item">
+                <td style={{ color: '#ff0000' }} className="grid-item">
                   Other
                 </td>
                 {gridState.others.map((ele, i) => (
                   <DraggableHOC
-                    styles={{ backgroundColor: '#b40000' }}
+                    styles={{ backgroundColor: '#ff0000' }}
                     key={i}
                     ele={ele}
                   />
@@ -196,6 +187,7 @@ export default () => {
             </tbody>
           </table>
 
+          {/* Alphabet Generator */}
           <table className="grid-container">
             <tbody>
               <tr>

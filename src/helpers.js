@@ -1,3 +1,5 @@
+// Helper Functions
+
 export const refreshRow = arr =>
   arr.map(ele => ({
     current: null,
