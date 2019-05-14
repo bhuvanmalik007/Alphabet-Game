@@ -66,6 +66,7 @@ export default () => {
     setKey(k + 1);
   };
 
+  // Return the main component
   return (
     <div className="App" key={k}>
       <Box>
@@ -76,7 +77,7 @@ export default () => {
           gap="xlarge"
           basis="auto"
         >
-          {/* Empty Table */}
+          {/* Empty table for dropping */}
           <table className="grid-container">
             <tbody>
               <tr>
@@ -88,7 +89,7 @@ export default () => {
               </tr>
             </tbody>
           </table>
-          {/* Refresh Button */}
+          {/* Refresh Button to put the cells back in the table to their respective positions */}
           <Refresh
             className="resetBtn"
             align="end"
@@ -184,7 +185,7 @@ export default () => {
             </tbody>
           </table>
 
-          {/* Alphabet Generator */}
+          {/* Alphabet(right table) Generator */}
           <table className="grid-container">
             <tbody>
               <tr>
