@@ -1,3 +1,5 @@
+// Lists for left table
+
 export const diagraphList = ['sh', 'ch', 'th', 'wh', 'ph'];
 export const bossyRList = ['ar', 'or', 'er', 'ir', 'ur'];
 export const vowelTeamsList1 = ['ai', 'ay', 'ee', 'ea', 'oa'];

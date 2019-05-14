@@ -15,7 +15,7 @@ import {
 } from './lists';
 import { stateListGenerator, alphabetListGenerator } from './helpers';
 
-// Generation of all lists
+// Generation of state of all lists
 const diagraphs = stateListGenerator(diagraphList);
 const bossyRs = stateListGenerator(bossyRList);
 const vowelTeams1 = stateListGenerator(vowelTeamsList1);
@@ -35,6 +35,7 @@ const gridData = {
   alphabet,
 };
 
+// Higher Order Component
 // eslint-disable-next-line react/prop-types
 const DraggableHOC = ({ ele, styles }) => (
   <td className="grid-item">
@@ -54,15 +55,11 @@ const DraggableHOC = ({ ele, styles }) => (
 
 // Main component return here
 export default () => {
-  // React Hooks
+  // REACT HOOKS
   // eslint-disable-next-line no-unused-vars
   const [gridState, setGridState] = useState(gridData);
   const [k, setKey] = useState(0);
-  useEffect(() => {
-    console.log('useEffect start');
-    console.log(gridState);
-    console.log('useEffect end');
-  });
+  useEffect(() => {});
 
   // Refresh Grids
   const refresh = () => {
