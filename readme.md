@@ -1,6 +1,7 @@
 # Alphabet Game
 
 This is a fun game for children to drag and drop alphabet, vowel teams etc. to an empty grid.
+All the React code is in the src folder.
 
 - All the table rows are auto-generated.
 - The lists are easily extensible.
